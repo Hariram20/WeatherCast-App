@@ -1,0 +1,8 @@
+1. wild card routing
+2. remove cdn links and install bootstrap5 using angular
+3. create seperate module file for routing.
+4. it should have minimum height card ciontainer 400px(generic messg-)
+5. while toggling searchbtn size should be same.
+6. lat and long should next to each other.
+7. search box input fields change style to bootstrap5.
+8. spacing alignment between humidity and wind.

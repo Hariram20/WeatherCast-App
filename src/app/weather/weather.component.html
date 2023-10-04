@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+    <div class="card">
+        <h2>Weather</h2>
+        <div class="search">
+            <div class="search-wrapper mt-3 d-flex align-items-center justify-content-center gap3">
+                                         
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="toggleButton" (change)="toggleLatLongInputs($event)" value="yes">
+                        <label class="form-check-label" for="mySwitch"></label>
+                    </div>                                                    
+                              
+                <div id="latLongInputs" *ngIf="showLatLongInputs" class="mb-3 d-flex gap-2 custom-input form-floating" >
+                    
+                    
+                        <input class="form-control" type="text" id="latitude" [(ngModel)]="lat" placeholder="Enter latitude" (keyup.enter)="searchByCity()" name="latitude">
+                      
+                        
+                        <input class="form-control" type="text" id="longitude" [(ngModel)]="long"
+                         placeholder="Enter longitude" (keyup.enter)="searchByCity()" name="longitude">
+                         
+                  </div>
+                  
+                <div id="cityInput"  *ngIf="!showLatLongInputs"  class="mb-3  custom-input form-floating">
+                                    <input class="form-control" type="text" id="city" [(ngModel)]="cityName" placeholder="Enter city name" spellcheck="false" (keyup.enter)="searchByCity()">
+                                    <label for="cityInput">City Name</label>
+                </div>
+                <button type="submit"(click)="fetchWeather()"><img src="assets\images\search.png" alt="images"></button>
+    
+        </div>
+        <div class="weather">
+            <img [src]="weatherIcon" class="weather-icon" *ngIf="weatherData">
+            <h1 class="temp" *ngIf="weatherData"> {{ (weatherData.main.temp - 273.15).toFixed(2) }}°C </h1>
+            <h2 class="city">{{ cityName }}</h2>
+            <div class="details" *ngIf="weatherData">
+                <div class="report d-flex align-items-center text-start">
+                    <img src="assets\images\humidity.png">
+                    <div>
+                        <p class="humidity">{{ weatherData.main.humidity }}%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="report d-flex align-items-center text-start">
+                    <img src="assets\images\wind.png">
+                    <div>
+                        <p class="wind">{{ weatherData.wind.speed }} km/h </p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+ 
+
