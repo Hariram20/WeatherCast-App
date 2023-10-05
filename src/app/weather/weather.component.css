@@ -64,9 +64,11 @@ body{
     margin-right: 10px;
 }
 .form-check-input:checked {
-    background-color: green; /* Change this to your desired color */
-    /*border-color: #FF5733; /* Change this to your desired border color */
-  }
+    background-color: green; 
+}
 .custom-input input {
     max-width: 200px;
+}
+.search, .inputbox{
+    margin-left: 1.5rem; 
 }
